@@ -58,3 +58,7 @@ A etapa 1 foi concluída, e com ela foram feitas mudanças voltadas para as etap
 Dentre as mudanças, na etapa 2 não serão mais gravados vídeos, e sim adquiridas fotos por meio do vídeo de referência contido no artigo base (Ref.26 do artigo), através de screenshots da tela.
 E na etapa 3, não será mais necessário fazer a limpeza de artefatos de movimento, apenas a filtragem do fundo das imagens.
 Para melhor adequação ao escopo da disciplina, o enfoque do projeto passa a ser mais na parte de reconstrução 3D e geração de imagem, que na parte de visão computacional.
+
+***Resultados parciais***
+Os códigos desenvolvidos até agora foram parciais, e não correspondem à cópia do artigo, mas sim, à estudo do funcionamento de redes neurais e decupagem do vídeo em frames.
+https://colab.research.google.com/drive/1K8-BwV-0-soxphwuxwafbA5YkVMOfI8p?usp=sharing
