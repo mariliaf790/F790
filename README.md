@@ -51,3 +51,9 @@ Sagi Jaffe-Dax, Amit H. Bermano, Yotam Erel, Lauren L. Emberson, "Video-based mo
   
   
 Gonzalez & Woods, Digital Image Processing -  2a Edição - 2008
+
+
+***Atualizações***
+A etapa 1 foi concluída, e com ela foram feitas mudanças voltadas para as etapas 2 e 3.
+Dentre as mudanças, na etapa 2 não serão mais gravados vídeos, e sim adquiridas fotos por meio do vídeo de referência contido no artigo base (Ref.26 do artigo), através de screenshots da tela.
+E na etapa 3, não será mais necessário fazer a limpeza de artefatos de movimento, apenas a filtragem do fundo das imagens.
