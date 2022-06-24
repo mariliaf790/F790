@@ -59,6 +59,42 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 > Os códigos desenvolvidos até agora foram parciais, e não correspondem à cópia do artigo, mas sim, à estudo do funcionamento de redes neurais e decupagem do vídeo em frames.
 > https://colab.research.google.com/drive/1K8-BwV-0-soxphwuxwafbA5YkVMOfI8p?usp=sharing
 
+## Para a entrega final:
+## Atividades realizadas
+> Como primeiro passo para o trabalho, utilizamos o mesmo vídeo que serviu de referência para o artigo estudado [1][2], o qual decompomos em seus frames a partir das funções '.VideoCapture()' e '.read()' em OpenCV [3][4], como pode-se ver no código do Google Colab fornecido na próxima sessão.
+
+> Obtidos os frames do vídeo, aplicamos primeiro uma máscara para detectar os pontos brancos dos frames (pontos onde a iluminação estava muito intensa) a fim de filtrá-los.
+
+> Feita a filtragem dos pontos brancos, passamos para a filtragem do fundo das imagens, a fim de deixar o destaque apenas na touca de fNIRS. Note que uma fita com padrão de cor em vermelho e azul foi passada pela touca, e os pontos fiduciais nessa estão marcados como pontos verdes. Portanto, para tal, buscamos identificar as cores usadas (vermelho, verde e azul) atribuindo intervalos de valores entre 0 e 255 para cada uma, e filtramos o que estava fora desses intervalos, a partir de máscaras [5].
+
+> Ao final desse processo, obtidos todos os frames do vídeo original com o fundo retirado e com destaque na touca, partimos para salvar os frames em vídeo AVI [6] para fins de visualização.
+
+> Por fim, foi usado o software SFM [7], onde foi possível carregar os frames do vídeo obtidos anteriormente, a fim de fazer uma reconstrução 3D da touca de fNIRS. O resultado final pode ser visto na sessão seguinte.
+
+## Resultados
+> O código completo utilizado em Google Colab pode ser visto em 
+
+> Um exemplo de frame obtido após a aplicação das máscaras de cores pode ser visto na Figura 1, seguido da reconstrução 3D obtida pelo software em SFM, na Figura 2.
+
+## Mudanças realizadas
+> Ao longo do trabalho, foram encontradas algumas dificuldades e formas de simplificar o processo.
+
+> Primeiramente, estava planejado gravarmos nosso próprio vídeo de referência com a touca de fNIRS, o que foi posteriormente considerado tirar prints de tela do vídeo usado no artigo, até que finalmente usamos o vídeo completo do artigo, decompondo em seus frames usando OpenCV.
+
+> Os códigos utilizados pelos autores e indicados no artigo não foram de grande ajuda, pois estavam em uma linguagem muito crua, sem muito desenvolvimento, o que nos levou a buscar nossas próprias referências.
+
+> Estava previsto, após a projeção 3D no software de SFM, adquirirmos as distâncias dos probes da touca e as posições dos pontos fiduciais a fim de definir uma posição fixa que a touca fica na cabeça do sujeito. Porém, este processo não estava explicado tão detalhadamente no artigo e vimos muita dificuldade em entender o que devia ser feito. Por conta disso, preferimos dar maior atenção ao processo de filtragem do fundo dos frames e projeção no SFM, já que condiziam mais com o escopo da disciplina.
+ 
+## Referências
+> * [1] Sagi Jaffe-Dax, Amit H. Bermano, Yotam Erel, Lauren L. Emberson, "Video-based motion-resilient reconstruction of three-dimensional position for functional near-infrared spectroscopy and electroencephalography head mounted probes," Neurophoton. 7(3) 035001 (20 July 2020) https://doi.org/10.1117/1.NPh.7.3.035001
+> * [2] https://www.youtube.com/watch?v=sD75ctsGlD4
+> * [3] https://github.com/Ai-Genome-Saksham/OpenCV/blob/main/OpenCV/%239%20Extracting%20Images%20from%20Video.py
+> * [4] https://www.youtube.com/watch?v=Ay6Nlb3KJog
+> * [5] https://acervolima.com/deteccao-de-varias-cores-em-tempo-real-usando-python-opencv/
+> * [6] """" referencia pra salvar o video em avi """"
+> * [7] http://ccwu.me/vsfm/
+
+
 
 
 
