@@ -11,19 +11,19 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 > | Manuela Von Ah Davanço  | 240675  | Física Médica|
 > | Marília Floriam Themer  | 184687  | Física Biomédica|
 
-
-## Objetivo
+## Descrição do projeto
+### Objetivo
 > Como objetivo principal desse projeto, buscamos estudar o método de registro de posicionamento de probe, presente no artigo de referência ("Video-based motion-resilient reconstruction of three-dimensional position for near infra-red spectroscopy and eletroencephalography head mounted probes") e propor um código inicial para teste em laboratório.
 
-## Justificativa
+### Justificativa
 > Em métodos de análise em neurofísica, é útil obter o posicionamento correto dos eletrodos/optodos no escalpo do sujeito para determinação da região de ativação cerebral, em especial em estudos longitudinais (onde temos várias seções com o mesmo sujeito), esse procedimento é necessário para garantir que se analisam as mesmas regiões cerebrais nas seções, e não há diferenças no posicionamento dos eletrodos/optodos.
 
 > Um método atual utilizado é em registro com referência magnética, que é sensível a movimentos físicos do sujeito, sendo quase impraticável em crianças, por exemplo, e situações de CTI/UTI. Para tanto, um método baseado em vídeo representa uma solução mais prática, barata, e de maior aplicabilidade.
 
-## Contexto do Projeto
+### Contexto do Projeto
 > Motivado pela Iniciação Científica das duas integrantes, o presente projeto se propõe a recriar o modelo de posicionamento de probe e eletrodo para técnicas de imagens aplicadas à neurofísica, como espectroscopia de infra-vermelho próximo e eletroencefalografia.
 
-## Atividades realizadas
+## Abordagem adotada
 > Como primeiro passo para o trabalho, utilizamos o mesmo vídeo que serviu de referência para o artigo estudado [1][2], o qual decompomos em seus frames a partir das funções '.VideoCapture()' e '.read()' em OpenCV [3][4], como pode-se ver no código do Google Colab fornecido na próxima sessão.
 
 > Obtidos os frames do vídeo, fizemos a conversão de RGB para Grayscale, montamos o histograma e definimos o limiar da máscara de interpolação via função 'inpaint', para remover os pontos de luz estourada. Em seguida, foi feita a conversão de grayscale para HSV e definimos as máscaras de cores, a fim de, posteriormente, filtrar o fundo dos frames e deixar em destaque apenas a touca de fNIRS.
@@ -32,15 +32,15 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 
 > Por fim, foi usado o software Visual SFM [6], onde foi possível carregar os frames do vídeo obtidos anteriormente, a fim de fazer uma reconstrução 3D da touca de fNIRS. O resultado final pode ser visto na sessão seguinte.
 
-## Resultados
+## Resultados finais
 > O código completo utilizado em Google Colab pode ser visto em https://colab.research.google.com/drive/1U0U9eu3-a7eC0pdQ0zuTi2HdLykRhzg1?authuser=1#scrollTo=353sJ-okH1FQ.
 
 > Na figura abaixo, pode-se ver, primeiro (acima), um frame do vídeo original, seguido do mesmo frame após as filtragens realizadas para retirar o fundo (meio), e por fim a reconstrução 3D obtida no software Visual SfM (abaixo):
 
 > ![WhatsApp Image 2022-07-03 at 18 27 25](https://user-images.githubusercontent.com/103216723/177193758-cf070370-d4a5-415f-8d9d-1200c34d6353.jpeg)
 
-
-## Mudanças realizadas
+## Discussão
+### Mudanças realizadas
 > Ao longo do trabalho, foram encontradas algumas dificuldades e formas de simplificar o processo.
 
 > Primeiramente, estava planejado gravarmos nosso próprio vídeo de referência com a touca de fNIRS, o que foi posteriormente considerado tirar prints de tela do vídeo usado no artigo, até que finalmente usamos o vídeo completo do artigo, decompondo em seus frames usando OpenCV.
@@ -49,7 +49,7 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 
 > Estava previsto, após a projeção 3D no software de SFM, adquirirmos as distâncias dos probes da touca e as posições dos pontos fiduciais a fim de definir uma posição fixa que a touca fica na cabeça do sujeito. Porém, este processo não estava explicado tão detalhadamente no artigo, e envolvia a utilização de softwares em C++, por exemplo, e vimos muita dificuldade em entender o que devia ser feito. Por conta disso, e pelo prazo disponível para estudo, preferimos dar maior atenção ao processo de filtragem do fundo dos frames e projeção no SFM, já que condiziam mais com o escopo da disciplina.
 
-## Conclusões e sugestões para projetos futuros
+### Conclusões e sugestões para projetos futuros
 > Considerando que o método original do artigo foi desenvolvido da computação para aplicação em neurofísica, e não da neurofísica para uso nela mesma, algumas  dificuldades surgem, como por exemplo: os softwares usados (SPM) não são usuais para análise dos dados em fNIRS e EEG. Também, pensando em fazer o processsamento do vídeo por cores e não por redes neurais como no artigo, além de custo computacional menor, existem adaptações na gravação do vídeo que facilitariam o código, como uso de cores sólidas ao invés das funções usadas no artigo (como a chamada "Perlin Noise").
  
 ## Referências
